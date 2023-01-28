@@ -52,7 +52,7 @@ public class ReservationServiceImpl implements ReservationService {
             }
             spot.setNumberOfWheels(numberOfWheels);
             spot.setOccupied(true);
-            spot.setParkingLot(null);
+            spot.setParkingLot(parkingLot);
            
             List<Spot> lists=parkingLot.getSpotList();
             lists.add(spot);

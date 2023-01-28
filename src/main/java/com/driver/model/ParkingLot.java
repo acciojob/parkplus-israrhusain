@@ -15,14 +15,68 @@ import java.util.*;
 public class ParkingLot {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int parkingLotId;
     private String name;
     private String address;
+
+    
+
+    public ParkingLot() {
+    }
+
 
     public ParkingLot(String name, String address) {
         this.name = name;
         this.address = address;
     }
-    @OneToMany(mappedBy = "spot",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "parkingLot",cascade = CascadeType.ALL)
     private List<Spot> spotList;
+
+
+
+  
+
+    public String getName() {
+        return name;
+    }
+
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+    public String getAddress() {
+        return address;
+    }
+
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+
+    public List<Spot> getSpotList() {
+        return spotList;
+    }
+
+
+    public void setSpotList(List<Spot> spotList) {
+        this.spotList = spotList;
+    }
+
+
+    public int getParkingLotId() {
+        return parkingLotId;
+    }
+
+
+    public void setParkingLotId(int parkingLotId) {
+        this.parkingLotId = parkingLotId;
+    }
+
+
+    
+
+
 }
