@@ -29,9 +29,7 @@ public class ReservationServiceImpl implements ReservationService {
             List<Spot> list=spotRepository3.findAll();
 
                
-            if( user==null ){
-                      throw new Exception("Cannot make reservation");
-               }
+           
             //SET USER
             Spot spot=null;
 
@@ -48,7 +46,7 @@ public class ReservationServiceImpl implements ReservationService {
             
             ParkingLot parkingLot=parkingLotRepository3.findById(parkingLotId).get();
             if(parkingLotId==null){
-                throw new Exception("Cannot make reservation");
+                throw new Exception("spot not found");
             }
             spot.setNumberOfWheels(numberOfWheels);
             spot.setOccupied(true);

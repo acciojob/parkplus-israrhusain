@@ -36,9 +36,12 @@ public class PaymentServiceImpl implements PaymentService {
                 payment.setPaymentMode(PaymentMode.UPI);
             }
             else{
+                payment.setPaymentMode(null);
+                paymentRepository2.save(payment);
                 throw new Exception("Payment mode not detected");
             }
             if(bill>amountSent){
+                 paymentRepository2.save(payment);
                 throw new Exception("Insufficient Amount");
             }
             payment.setReservation(reservation);
