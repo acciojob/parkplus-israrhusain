@@ -15,7 +15,7 @@ import java.util.*;
 public class ParkingLot {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int parkingLotId;
+    private int id;
     private String name;
     private String address;
 
@@ -66,14 +66,17 @@ public class ParkingLot {
     }
 
 
-    public int getParkingLotId() {
-        return parkingLotId;
+    public int getId() {
+        return id;
     }
 
 
-    public void setParkingLotId(int parkingLotId) {
-        this.parkingLotId = parkingLotId;
+    public void setId(int id) {
+        this.id = id;
     }
+
+
+    
 
 
     
