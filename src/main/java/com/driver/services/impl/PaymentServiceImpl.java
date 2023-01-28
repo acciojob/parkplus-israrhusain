@@ -25,7 +25,7 @@ public class PaymentServiceImpl implements PaymentService {
             int bill=hours*pricePerHour;
 
             if(bill>amountSent){
-                paymentRepository2.save(payment);
+                //paymentRepository2.save(payment);
                throw new Exception("Insufficient Amount");
            }
              String paymentmode=mode.toUpperCase();
@@ -40,8 +40,8 @@ public class PaymentServiceImpl implements PaymentService {
                 payment.setPaymentMode(PaymentMode.UPI);
             }
             else{
-                payment.setPaymentMode(null);
-                paymentRepository2.save(payment);
+               // payment.setPaymentMode(null);
+                //paymentRepository2.save(payment);
                 throw new Exception("Payment mode not detected");
             }
            

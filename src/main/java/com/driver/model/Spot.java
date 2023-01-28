@@ -20,7 +20,7 @@ public class Spot {
     private SpotType spotType;
     private int PricePerHour;
     private Boolean Occupied;
-    private int numberOfWheels;
+   // private int numberOfWheels;
 
     
     
@@ -31,11 +31,11 @@ public class Spot {
 
 
 
-    public Spot(SpotType spotType, int PricePerHour,Boolean Occupied,int numberOfWheels) {
+    public Spot(SpotType spotType, int PricePerHour,Boolean Occupied) {
         this.spotType = spotType;
         this.PricePerHour= PricePerHour;
         this.Occupied=false;
-        this.numberOfWheels=0;
+       
     }
 
 
@@ -119,21 +119,7 @@ public class Spot {
 
 
 
-    public int getNumberOfWheels() {
-        return numberOfWheels;
-    }
-
-
-
-
-    public void setNumberOfWheels(int numberOfWheels) {
-        this.numberOfWheels = numberOfWheels;
-    }
-
-
-
-
-    public int getId() {
+   public int getId() {
         return id;
     }
 
