@@ -16,10 +16,10 @@ import javax.persistence.Table;
 public class Spot {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int spotId;
+    private int id;
     private SpotType spotType;
-    private int priceperhour;
-    private boolean occupied;
+    private int PricePerHour;
+    private Boolean Occupied;
     private int numberOfWheels;
 
     
@@ -31,10 +31,10 @@ public class Spot {
 
 
 
-    public Spot(SpotType spotType, int priceperhour,boolean occupied,int numberOfWheels) {
+    public Spot(SpotType spotType, int PricePerHour,Boolean Occupied,int numberOfWheels) {
         this.spotType = spotType;
-        this.priceperhour = priceperhour;
-        this.occupied=true;
+        this.PricePerHour= PricePerHour;
+        this.Occupied=false;
         this.numberOfWheels=numberOfWheels;
     }
 
@@ -47,15 +47,7 @@ public class Spot {
      @OneToMany(mappedBy = "spot",cascade = CascadeType.ALL)
      private List<Reservation> ReservationList;
 
-
-
-
-   
-
-
-
-
-    public SpotType getSpotType() {
+  public SpotType getSpotType() {
         return spotType;
     }
 
@@ -69,29 +61,31 @@ public class Spot {
 
 
 
-    public int getPriceperhour() {
-        return priceperhour;
+   
+
+   public int getPricePerHour() {
+        return PricePerHour;
     }
 
 
 
 
-    public void setPriceperhour(int priceperhour) {
-        this.priceperhour = priceperhour;
+    public void setPricePerHour(int pricePerHour) {
+        PricePerHour = pricePerHour;
     }
 
 
 
 
-    public boolean isOccupied() {
-        return occupied;
+    public Boolean getOccupied() {
+        return Occupied;
     }
 
 
 
 
-    public void setOccupied(boolean occupied) {
-        this.occupied = occupied;
+    public void setOccupied(Boolean occupied) {
+        Occupied = occupied;
     }
 
 
@@ -139,16 +133,21 @@ public class Spot {
 
 
 
-    public int getSpotId() {
-        return spotId;
+    public int getId() {
+        return id;
     }
 
 
 
 
-    public void setSpotId(int spotId) {
-        this.spotId = spotId;
+    public void setId(int id) {
+        this.id = id;
     }
+
+
+
+
+   
 
 
 

@@ -36,8 +36,8 @@ public class ReservationServiceImpl implements ReservationService {
             Spot spot=null;
 
          for(Spot spot1:list){
-            if(spot1.isOccupied()==Boolean.FALSE){
-                if(spot==null || spot.getPriceperhour()>spot1.getPriceperhour()){
+            if(spot1.getOccupied()==Boolean.FALSE){
+                if(spot==null || spot.getPricePerHour()>spot1.getPricePerHour()){
                      spot=spot1;
                 }
             }

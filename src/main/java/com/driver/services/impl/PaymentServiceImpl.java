@@ -22,7 +22,7 @@ public class PaymentServiceImpl implements PaymentService {
             PaymentMode paymentmode=payment.getPaymentMode();
             Reservation reservation=reservationRepository2.findById(reservationId).get();
             int hours=reservation.getNumberOfHours();
-            int pricePerHour=reservation.getSpot().getPriceperhour();
+            int pricePerHour=reservation.getSpot().getPricePerHour();
             int bill=hours*pricePerHour;
             paymentmode.toString().toUpperCase();
             if(paymentmode.equals("CASH")){
