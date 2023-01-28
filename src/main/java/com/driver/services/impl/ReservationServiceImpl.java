@@ -41,13 +41,13 @@ public class ReservationServiceImpl implements ReservationService {
             }
             }
             if(spot==null){
-                throw new Exception("spot not found");
-            }
+                 throw new Exception("spot not found");
+             }
             
             ParkingLot parkingLot=parkingLotRepository3.findById(parkingLotId).get();
-            if(parkingLotId==null){
-                throw new Exception("spot not found");
-            }
+            // if(parkingLotId==null){
+            //     throw new Exception("spot not found");
+            // }
             spot.setNumberOfWheels(numberOfWheels);
             spot.setOccupied(true);
             spot.setParkingLot(parkingLot);
