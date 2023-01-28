@@ -35,7 +35,7 @@ public class Spot {
         this.spotType = spotType;
         this.PricePerHour= PricePerHour;
         this.Occupied=false;
-        this.numberOfWheels=numberOfWheels;
+        this.numberOfWheels=0;
     }
 
 
