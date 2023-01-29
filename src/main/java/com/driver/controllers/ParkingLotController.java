@@ -21,6 +21,7 @@ public class ParkingLotController {
     public ResponseEntity<ParkingLot> addParkingLot(@RequestParam String name, @RequestParam String address) {
         //add a new parking lot to the database
         ParkingLot newParkingLot=parkingLotService.addParkingLot(name, address);
+        
         return new ResponseEntity<>(newParkingLot, HttpStatus.CREATED);
     }
 
@@ -29,6 +30,7 @@ public class ParkingLotController {
         //create a new spot in the parkingLot with given id
         //the spot type should be the next biggest type in case the number of wheels are not 2 or 4, for 4+ wheels, it is others
         Spot newSpot=parkingLotService.addSpot(parkingLotId, numberOfWheels, pricePerHour);
+        //Spot newSpot=parkingLotService.addSpot(1, 2, 30);
         return new ResponseEntity<>(newSpot, HttpStatus.CREATED);
     }
 
