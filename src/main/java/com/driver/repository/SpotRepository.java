@@ -11,6 +11,9 @@ public interface SpotRepository extends JpaRepository<Spot, Integer>{
     
     void deleteSpotById(Integer spotId);
 
+    //@Query("select b from spot b where b.numberOfWheels in (select a from Spot where a.number=:numberOfWeels)")
+    //List<Spot> findBynumberSpots(Integer numberOfWheels);
+     List<Spot> findAll();
     //List<Spot> findBSpots(Integer numberOfWheels);
     
 }
