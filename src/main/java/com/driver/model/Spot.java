@@ -34,7 +34,7 @@ public class Spot {
 
 
     public Spot(int pricePerHour,Boolean Occupied,int numberOfWheels) {
-        this.pricePerHour= pricePerHour;
+        this.pricePerHour=0;
         this.Occupied=false;
         this.numberOfWheels=numberOfWheels;
     }
@@ -47,7 +47,7 @@ public class Spot {
      private ParkingLot parkingLot;
 
      @OneToMany(mappedBy = "spot",cascade = CascadeType.ALL)
-     private List<Reservation> ReservationList=new ArrayList();
+     private List<Reservation> ReservationList=new ArrayList<>();
 
 
 

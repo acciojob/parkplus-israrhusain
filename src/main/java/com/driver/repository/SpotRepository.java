@@ -9,5 +9,5 @@ import com.driver.model.Spot;
 @Repository
 public interface SpotRepository extends JpaRepository<Spot, Integer>{
     
-      
+    void deleteSpotById(Integer spotId);
 }
