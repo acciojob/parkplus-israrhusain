@@ -34,9 +34,9 @@ public class Reservation {
     @JoinColumn
     private User user;
 
-    @OneToOne
-    @JoinColumn
-    private Payment payment;
+
+
+   
 
 
 
