@@ -34,7 +34,8 @@ public class Reservation {
     @JoinColumn
     private User user;
 
-
+    @OneToOne(mappedBy="reservation")
+    private Payment Payment;
 
    
 
@@ -66,14 +67,6 @@ public class Reservation {
         this.user = user;
     }
 
-    public Payment getPayment() {
-        return payment;
-    }
-
-    public void setPayment(Payment payment) {
-        this.payment = payment;
-    }
-
     public int getReservationId() {
         return reservationId;
     }
@@ -81,6 +74,16 @@ public class Reservation {
     public void setReservationId(int reservationId) {
         this.reservationId = reservationId;
     }
+
+    public Payment getPayment() {
+        return Payment;
+    }
+
+    public void setPayment(Payment payment) {
+        Payment = payment;
+    }
+
+    
 
     
 
