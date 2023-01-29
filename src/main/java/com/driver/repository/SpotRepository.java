@@ -10,4 +10,7 @@ import com.driver.model.Spot;
 public interface SpotRepository extends JpaRepository<Spot, Integer>{
     
     void deleteSpotById(Integer spotId);
+
+    //List<Spot> findBSpots(Integer numberOfWheels);
+    
 }

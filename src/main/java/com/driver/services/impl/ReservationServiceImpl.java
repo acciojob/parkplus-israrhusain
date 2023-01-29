@@ -26,7 +26,7 @@ public class ReservationServiceImpl implements ReservationService {
             Reservation reservation=new Reservation();
             reservation.setNumberOfHours(timeInHours);
             User user=userRepository3.findById(userId).get();
-            List<Spot> list=spotRepository3.findByWeels(numberOfWheels);
+            List<Spot> list=spotRepository3.findAll();
            
             //SET USER
             Spot spot=null;

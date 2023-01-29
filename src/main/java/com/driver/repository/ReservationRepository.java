@@ -7,4 +7,5 @@ import com.driver.model.Reservation;
 
 @Repository
 public interface ReservationRepository extends JpaRepository<Reservation, Integer>{
+    
 }
