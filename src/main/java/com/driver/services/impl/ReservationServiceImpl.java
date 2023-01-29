@@ -27,8 +27,6 @@ public class ReservationServiceImpl implements ReservationService {
             reservation.setNumberOfHours(timeInHours);
             User user=userRepository3.findById(userId).get();
             List<Spot> list=spotRepository3.findAll();
-
-               
            
             //SET USER
             Spot spot=null;
@@ -40,12 +38,10 @@ public class ReservationServiceImpl implements ReservationService {
                 }
             }
             }
-            if(spot==null){
-                 throw new Exception("spot not found");
-             }
+           
             
             ParkingLot parkingLot=parkingLotRepository3.findById(parkingLotId).get();
-            if(parkingLotId==null){
+            if(parkingLotId==null || spot==null || user==null){
                  throw new Exception("spot not found");
              }
             spot.setNumberOfWheels(numberOfWheels);
