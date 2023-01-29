@@ -41,8 +41,8 @@ public class ReservationServiceImpl implements ReservationService {
            
             
             ParkingLot parkingLot=parkingLotRepository3.findById(parkingLotId).get();
-            if(spot==null){
-                 throw new Exception("spot not found");
+            if(spot==null  || user==null || parkingLot==null){
+                 throw new Exception("Cannot make reservation");
              }
             spot.setNumberOfWheels(numberOfWheels);
             spot.setOccupied(true);
