@@ -1,5 +1,6 @@
 package com.driver.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -16,10 +17,10 @@ import javax.persistence.Table;
 @Table
 public class Spot {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private SpotType spotType;
-    private int PricePerHour;
+    private int pricePerHour;
     private Boolean Occupied;
     private int numberOfWheels;
 
@@ -32,11 +33,10 @@ public class Spot {
 
 
 
-    public Spot(SpotType spotType, int PricePerHour,Boolean Occupied,int numberOfWheels) {
-        this.spotType = spotType;
-        this.PricePerHour= PricePerHour;
+    public Spot(int pricePerHour,Boolean Occupied,int numberOfWheels) {
+        this.pricePerHour= pricePerHour;
         this.Occupied=false;
-        this.numberOfWheels=0;
+        this.numberOfWheels=numberOfWheels;
     }
 
 
@@ -47,7 +47,9 @@ public class Spot {
      private ParkingLot parkingLot;
 
      @OneToMany(mappedBy = "spot",cascade = CascadeType.ALL)
-     private List<Reservation> ReservationList;
+     private List<Reservation> ReservationList=new ArrayList();
+
+
 
   public SpotType getSpotType() {
         return spotType;
@@ -66,14 +68,14 @@ public class Spot {
    
 
    public int getPricePerHour() {
-        return PricePerHour;
+        return pricePerHour;
     }
 
 
 
 
     public void setPricePerHour(int pricePerHour) {
-        PricePerHour = pricePerHour;
+        this.pricePerHour = pricePerHour;
     }
 
 

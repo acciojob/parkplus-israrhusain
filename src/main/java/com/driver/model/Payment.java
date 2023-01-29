@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Table
 public class Payment {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
     private boolean PaymentCompleted;
     private PaymentMode paymentMode;

@@ -14,7 +14,7 @@ import java.util.*;
 @Table
 public class ParkingLot {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
     private String address;
@@ -25,10 +25,10 @@ public class ParkingLot {
     }
 
 
-    public ParkingLot(String name, String address, int id) {
+    public ParkingLot(String name, String address) {
         this.name = name;
         this.address = address;
-        this.id=id;
+        
     }
     @OneToMany(mappedBy = "parkingLot",cascade = CascadeType.ALL)
     private List<Spot> spotList=new ArrayList<>();
