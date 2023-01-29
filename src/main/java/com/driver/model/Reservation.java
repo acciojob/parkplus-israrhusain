@@ -34,7 +34,7 @@ public class Reservation {
     @JoinColumn
     private User user;
 
-    @OneToOne
+    @OneToOne(mappedBy="reservation",cascade=CascadeType.ALL) 
     private Payment payment;
 
 
