@@ -35,7 +35,7 @@ public class Spot {
 
     public Spot(int pricePerHour,Boolean Occupied,int numberOfWheels) {
         this.pricePerHour=0;
-        this.Occupied=false;
+        this.Occupied=Occupied;
         this.numberOfWheels=numberOfWheels;
     }
 
