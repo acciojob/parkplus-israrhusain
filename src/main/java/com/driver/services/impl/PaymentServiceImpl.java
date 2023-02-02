@@ -24,32 +24,39 @@ public class PaymentServiceImpl implements PaymentService {
             int pricePerHour=reservation.getSpot().getPricePerHour();
             int bill=hours*pricePerHour;
 
-            if(bill>amountSent){
+          
+           if(mode.equalsIgnoreCase("CASH") || mode.equalsIgnoreCase("CARD") || mode.equalsIgnoreCase("UPI")){
+
+            if(bill!=amountSent){
                 //paymentRepository2.save(payment);
                throw new Exception("Insufficient Amount");
            }
-             String paymentmode=mode.toUpperCase();
-            if(paymentmode.equals("CASH")){
+               
+              if(mode.equalsIgnoreCase("CASH")){
                 payment.setPaymentMode(PaymentMode.CASH);
                 
-            }
-            else if(paymentmode.equals("CARD")){
+             }
+               if(mode.equalsIgnoreCase("CARD")){
                 payment.setPaymentMode(PaymentMode.CARD);
             }
-            else if(paymentmode.equals("UPI")){
+               if(mode.equalsIgnoreCase("UPI")){
                 payment.setPaymentMode(PaymentMode.UPI);
-            }
+                }
+           }
             else{
                // payment.setPaymentMode(null);
                 //paymentRepository2.save(payment);
                 throw new Exception("Payment mode not detected");
             }
-           
+
+            
             payment.setReservation(reservation);
             payment.setPaymentCompleted(true);
 
            reservationRepository2.save(reservation);
 
             return payment;
+        }
+           
     }
-}
+
