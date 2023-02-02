@@ -23,23 +23,18 @@ public class ReservationServiceImpl implements ReservationService {
     ParkingLotRepository parkingLotRepository3;
     @Override
     public Reservation reserveSpot(Integer userId, Integer parkingLotId, Integer timeInHours, Integer numberOfWheels) throws Exception {
-            Reservation reservation=new Reservation();
-
-            reservation.setNumberOfHours(timeInHours);
-
+         
+        try{
             User user=userRepository3.findById(userId).get();
-
-           
 
             ParkingLot parkingLot=parkingLotRepository3.findById(parkingLotId).get();
 
-             List<Spot> list=parkingLot.getSpotList();
-
-            if(user==null || parkingLot==null){
+         if(user==null || parkingLot==null){
                 throw new Exception("Cannot make reservation");
              }
             //SET USER
-            Spot spot=null;
+         List<Spot> list=parkingLot.getSpotList();
+         Spot spot=null;
 
          for(Spot spot1:list){
             if(spot1.getOccupied()==Boolean.FALSE){
@@ -55,23 +50,26 @@ public class ReservationServiceImpl implements ReservationService {
             spot.setNumberOfWheels(numberOfWheels);
             spot.setOccupied(true);
             spot.setParkingLot(parkingLot);
-           
-            List<Spot> lists=parkingLot.getSpotList();
-            lists.add(spot);
-            parkingLot.setSpotList(lists);
-            
+        
+            parkingLot.setSpotList(list);
+            spotRepository3.save(spot);
              
-
+            Reservation reservation=new Reservation();
             List<Reservation>list1=user.getReservationList();
             list1.add(reservation);
             user.setReservationList(list1);
             reservation.setUser(user);
-           
+            reservation.setNumberOfHours(timeInHours);
             reservation.setSpot(spot);
+            userRepository3.save(user);
 
-            reservationRepository3.save(reservation);
+            //reservationRepository3.save(reservation);
 
        return reservation;
-
     }
+    catch(Exception e){
+        return null;
+    }
+    }
+   
 }
