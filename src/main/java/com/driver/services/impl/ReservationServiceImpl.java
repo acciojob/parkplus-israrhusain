@@ -35,14 +35,30 @@ public class ReservationServiceImpl implements ReservationService {
             //SET USER
          List<Spot> list=parkingLot.getSpotList();
          Spot spot=null;
-
+           int amt=Integer.MAX_VALUE;
          for(Spot spot1:list){
-            if(spot1.getOccupied()==Boolean.FALSE){
-                if(spot==null || spot.getPricePerHour()>spot1.getPricePerHour()){
-                     spot=spot1;
+            
+                if(spot1.getOccupied()==false && numberOfWheels>4 && spot1.getSpotType()==SpotType.OTHERS){
+                    if(amt>=spot1.getPricePerHour()){
+                        amt=spot1.getPricePerHour();
+                        spot=spot1;
+                    }
+                else if(spot1.getOccupied()==false && (numberOfWheels>2 && numberOfWheels<=4) &&spot1.getSpotType()==SpotType.FOUR_WHEELER){
+                     if(amt>=spot1.getPricePerHour()){
+                        amt=spot1.getPricePerHour();
+                        spot=spot1;
+                     }
+                } 
+                else{
+                    if(amt>=spot1.getPricePerHour()){
+                        amt=spot1.getPricePerHour();
+                        spot=spot1;
+                    }
+                } 
+                     
                 }
             }
-            }
+            
             if(spot==null ){
                  throw new Exception("Cannot make reservation");
              }
