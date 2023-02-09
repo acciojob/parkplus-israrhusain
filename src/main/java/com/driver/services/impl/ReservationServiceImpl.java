@@ -34,9 +34,10 @@ public class ReservationServiceImpl implements ReservationService {
          if(user==null || parkingLot==null){
                 throw new Exception("Cannot make reservation");
              }
-            //SET USER
+        
+
         List<Spot> list=new ArrayList<>();
-          list=parkingLot.getSpotList();
+        list=parkingLot.getSpotList();
          Spot spot=null;
          int amt=Integer.MAX_VALUE;
          for(Spot spot1:list){
@@ -71,7 +72,7 @@ public class ReservationServiceImpl implements ReservationService {
             spot.setParkingLot(parkingLot);
         
             parkingLot.setSpotList(list);
-            spotRepository3.save(spot);
+           // spotRepository3.save(spot);
              
            
             List<Reservation>list1=user.getReservationList();
@@ -80,9 +81,9 @@ public class ReservationServiceImpl implements ReservationService {
             reservation.setUser(user);
             reservation.setNumberOfHours(timeInHours);
             reservation.setSpot(spot);
-            userRepository3.save(user);
+           // userRepository3.save(user);
 
-            //reservationRepository3.save(reservation);
+            reservationRepository3.save(reservation);
 
        return reservation;
     }
